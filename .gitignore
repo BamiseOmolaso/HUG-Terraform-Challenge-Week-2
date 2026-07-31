@@ -8,6 +8,9 @@
 # macOS
 .DS_Store
 
+# Personal working notes — kept local, not part of the deliverable
+HUG-Week-Two-Brief.md
+
 # Terraform working files
 # Note: .terraform.lock.hcl is intentionally NOT ignored — HashiCorp
 # recommends committing the dependency lock file so provider versions
