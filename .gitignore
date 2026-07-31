@@ -1,0 +1,22 @@
+# Local variable overrides (may contain secrets later — don't commit)
+*.tfvars
+!terraform.tfvars.example
+
+# SSH private keys — never commit
+*.pem
+
+# macOS
+.DS_Store
+
+# Terraform working files
+# Note: .terraform.lock.hcl is intentionally NOT ignored — HashiCorp
+# recommends committing the dependency lock file so provider versions
+# are consistent for everyone who clones this repo.
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
