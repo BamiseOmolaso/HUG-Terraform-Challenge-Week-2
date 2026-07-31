@@ -18,7 +18,7 @@ The root module wires them together and outputs the public IP, DNS, instance ID 
 ## Prerequisites
 
 - Terraform `>= 1.14.0`
-- AWS credentials configured (`aws sts get-caller-identity` should work)
+- AWS credentials configured (`aws sts get-caller-identity`)
 - An EC2 key pair in `us-east-1` (default name `terraform-key`), for SSH
 
 ## Deploy
@@ -41,8 +41,6 @@ Open the URL. Give it a minute after apply; `user_data` still has to install Ngi
 ssh -i ~/.ssh/terraform-key.pem ec2-user@$(terraform output -raw public_ip)
 ```
 
-Never commit `.pem` files.
-
 ## Notes
 
 `user_data` runs only on first boot, so editing it does nothing to a running instance. The compute module sets `user_data_replace_on_change = true`, which tells Terraform to replace the instance when the script changes. The public IP changes with it.
@@ -63,12 +61,3 @@ Never commit `.pem` files.
 terraform destroy
 ```
 
-This removes the 11 resources in the stack. The S3 state bucket is not part of the stack and is not destroyed; delete it manually if you no longer need it.
-
-## Deliverables
-
-- Modular Terraform code (this repo)
-- Remote backend (S3 with `use_lockfile`)
-- Deployment instructions (this file)
-- Screenshots of the webpage and the running instance
-- LinkedIn post tagging HUG Lagos and HUG Ibadan
